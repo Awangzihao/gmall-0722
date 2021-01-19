@@ -18,6 +18,4 @@
         <result property="lng" column="lng"/>
         <result property="lat" column="lat"/>
     </resultMap>
-
-
 </mapper>

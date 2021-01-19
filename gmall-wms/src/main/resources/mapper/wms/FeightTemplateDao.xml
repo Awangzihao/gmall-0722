@@ -14,6 +14,4 @@
         <result property="continueFee" column="continue_fee"/>
         <result property="dest" column="dest"/>
     </resultMap>
-
-
 </mapper>
