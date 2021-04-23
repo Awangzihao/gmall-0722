@@ -20,5 +20,4 @@ public class JwtTest {
 
         System.out.println(token);
     }
-
 }

@@ -1,12 +1,15 @@
 package com.atguigu.gmall.pms.controller;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
 
 import com.atguigu.core.bean.PageVo;
 import com.atguigu.core.bean.QueryCondition;
 import com.atguigu.core.bean.Resp;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +35,20 @@ import com.atguigu.gmall.pms.service.SpuInfoService;
 public class SpuInfoController {
     @Autowired
     private SpuInfoService spuInfoService;
+
+
+
+    /**
+     * spu商品信息查询
+     *
+     * */
+    @ApiOperation("spu商品信息查询")
+    @GetMapping
+    public Resp querySpuInfo(QueryCondition queryCondition,@RequestParam("catId")Long cid){
+        PageVo page = spuInfoService.querySpuInfo(queryCondition,cid);
+        return Resp.ok(page);
+    }
+
 
     /**
      * 列表
@@ -78,7 +95,6 @@ public class SpuInfoController {
     @PreAuthorize("hasAuthority('pms:spuinfo:update')")
     public Resp<Object> update(@RequestBody SpuInfoEntity spuInfo){
 		spuInfoService.updateById(spuInfo);
-
         return Resp.ok(null);
     }
 
@@ -90,7 +106,6 @@ public class SpuInfoController {
     @PreAuthorize("hasAuthority('pms:spuinfo:delete')")
     public Resp<Object> delete(@RequestBody Long[] ids){
 		spuInfoService.removeByIds(Arrays.asList(ids));
-
         return Resp.ok(null);
     }
 

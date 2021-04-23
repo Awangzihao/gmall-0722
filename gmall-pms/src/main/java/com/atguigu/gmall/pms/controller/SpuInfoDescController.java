@@ -7,6 +7,7 @@ import java.util.Map;
 import com.atguigu.core.bean.PageVo;
 import com.atguigu.core.bean.QueryCondition;
 import com.atguigu.core.bean.Resp;
+import com.atguigu.gmall.pms.entity.SpuInfoEntity;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +33,10 @@ import com.atguigu.gmall.pms.service.SpuInfoDescService;
 public class SpuInfoDescController {
     @Autowired
     private SpuInfoDescService spuInfoDescService;
+
+
+
+
 
     /**
      * 列表
